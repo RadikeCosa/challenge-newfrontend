@@ -1,0 +1,28 @@
+.sidebar-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 951px;
+  padding: 20px 0px 0px 0px;
+  gap: 0px;
+  border-radius: 11px 0px 0px 0px;
+  justify-content: space-between;
+  background-color: rgb(30, 47, 73, 1);
+  transition: width 0.3s ease-in-out; 
+}
+.sidebar-logo {
+  height: 100px;
+}
+.sidebar-link {
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar-link h4 {
+  font-family: Nunito;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24.55px;
+  text-align: left;
+}
