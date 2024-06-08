@@ -1,7 +1,7 @@
 import { useAuth } from '../auth/AuthContext';
 import '../styles/dashBoardComponent.css';
 import AnalisisComponent from '../components/analisis/AnalisisComponent';
-import RankingComponent from '../components/ranking/RankinkgComponent';
+import RankingComponent from '../components/ranking/RankingComponent';
 import SideBarComponent from '../components/sidebar/SidebarComponent';
 import { useState, useEffect } from "react";
 import useAnalisisData from '../hooks/useAnalisisData';
