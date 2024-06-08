@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import SearchComponent from "../SearchComponent";
+import SearchButtonComponent from "./SearchButtonComponent";
 import '../../styles/rankingComponent.css';
 
 const RankingComponent = () => {
@@ -84,7 +85,7 @@ const RankingComponent = () => {
         />
         </div>
         <div className="button-container">
-        <button onClick={handleSearch} className="btn">Filtrar</button>  
+          <SearchButtonComponent onClick={handleSearch} label="Filtrar"/>
         </div>
     </div>
   );
