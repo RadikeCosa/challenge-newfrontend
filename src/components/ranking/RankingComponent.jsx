@@ -56,7 +56,8 @@ const RankingComponent = () => {
   };
   return (
     <div className="ranking-container">
-      <h3>Ranking Component</h3>
+      <h3>Puntuar Film</h3>
+      <div className="filter-row">
       <SearchComponent
         value={genre}
         handleChange={handleGenreChange}
@@ -78,8 +79,13 @@ const RankingComponent = () => {
       <SearchComponent
       type="input"
         value={name}
-        handleChange={handleNameChange}/>
-      <button onClick={handleSearch} className="btn btn-primary">Search</button>
+        handleChange={handleNameChange}
+        placeholder="Select Name"
+        />
+        </div>
+        <div className="button-container">
+        <button onClick={handleSearch} className="btn btn-primary">Search</button>  
+        </div>
     </div>
   );
 };

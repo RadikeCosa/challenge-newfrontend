@@ -7,10 +7,10 @@ const SearchComponent = ({
 }) => {
   if (type === "input") {
     return (
-      <div className="">
+      <div className="input-container">
         <input
           type="text"
-          className="form-control"
+          className="filter"
           value={value}
           onChange={handleChange}
           placeholder={placeholder}

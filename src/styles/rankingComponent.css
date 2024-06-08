@@ -1,9 +1,15 @@
-.ranking-container{
-  display: flex;
-}
 .input-container{
   width: 220px;
+  
+  }
+  .filter{
+  background: rgba(30, 47, 73, 1);
+  color: white;
+  width: 165px;
+  height: 41px;
+
+
 }
-.filter{
-  width: 100px;
+.filter-row{
+  display: flex;
 }
