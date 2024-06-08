@@ -1,0 +1,9 @@
+.ranking-container{
+  display: flex;
+}
+.input-container{
+  width: 220px;
+}
+.filter{
+  width: 100px;
+}

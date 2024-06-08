@@ -19,10 +19,10 @@ const SearchComponent = ({
     );
   } else {
     return (
-      <div className="row">
+      <div className="input-container">
         <div>
           <select
-            className="form-control"
+            className="filter"
             value={value}
             onChange={handleChange}
           >
