@@ -1,15 +1,35 @@
-.input-container{
+.input-container {
   width: 220px;
-  
-  }
-  .filter{
+  padding: 20px;
+}
+.filter {
   background: rgba(30, 47, 73, 1);
   color: white;
   width: 165px;
   height: 41px;
-
-
+  border-radius: 6px;
+  border: 0;
+  
 }
-.filter-row{
+.filter-row {
   display: flex;
+}
+.btn {
+  background: rgba(234, 29, 37, 1);
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  width: 165px;
+  height: 30px;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;  
+  display: flex;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+.filter::placeholder{
+  color:white;
+  display: flex;
+  padding: 2px;
 }

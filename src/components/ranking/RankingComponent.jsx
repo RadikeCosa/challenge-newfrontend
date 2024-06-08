@@ -84,7 +84,7 @@ const RankingComponent = () => {
         />
         </div>
         <div className="button-container">
-        <button onClick={handleSearch} className="btn btn-primary">Search</button>  
+        <button onClick={handleSearch} className="btn">Filtrar</button>  
         </div>
     </div>
   );
