@@ -10,7 +10,7 @@ import {
   handleNameChange 
 } from '../../hooks/rankingHandlers'
 
-const RankingComponent = () => {
+const RankingComponent = ({years, genres}) => {
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
   const [rating, setRating] = useState("");
@@ -24,13 +24,13 @@ const RankingComponent = () => {
       <SearchComponent
         value={genre}
         handleChange={(e) => handleGenreChange(e, setGenre, setYear, setRating, setName)}
-        options={[{ id: '1', name: 'Action' }, { id: '2', name: 'Comedy' }]}
+        options={genres}
         placeholder="Select Genre"
       />
       <SearchComponent
         value={year}
         handleChange={(e) => handleYearChange(e, setYear, setGenre, setRating, setName)}
-        options={[{ id: '1', year: '1995' }, { id: '2', year: '2000' }]}
+        options={years}
         placeholder="Select Year"
       />
       <SearchComponent

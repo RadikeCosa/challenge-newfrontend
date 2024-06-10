@@ -8,7 +8,7 @@ import useAnalisisData from '../hooks/useAnalisisData';
 
 const DashboardComponent = () => {
   const [genero, setGenero] = useState("");
-  const { genres, averageRatingByYear, votosPorRating, fetchAnalisisData } = useAnalisisData();
+  const { years, genres, averageRatingByYear, votosPorRating, fetchAnalisisData } = useAnalisisData();
   const handleGeneroChange = (event) => {
     setGenero(event.target.value);
   };
@@ -30,7 +30,7 @@ const DashboardComponent = () => {
       <SideBarComponent setActiveComponent={setActiveComponent}/>
       <div className="main-container">
         <p>Bienvenido {user["Full Name"]}</p>
-        {activeComponent === "ranking" && <RankingComponent />}
+        {activeComponent === "ranking" && <RankingComponent genres={genres} years={years}/>}
         {activeComponent === "analisis" && 
           <AnalisisComponent 
             genres={genres} 

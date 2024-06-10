@@ -3,20 +3,23 @@ import apiService from '../service/apiService';
 
 const useAnalisisData = () => {
   const [genres, setGenres] = useState([]);
+  const [years, setYears] = useState([])
   const [averageRatingByYear, setAverageRatingByYear] = useState([]);
   const [votosPorRating, setVotosPorRating] = useState([]);
 
   useEffect(() => {
-    const fetchGenres = async () => {
+    const fetchGenresAndYears = async () => {
       try {
         const genresData = await apiService.getGenres();
         setGenres(genresData);
+        const yearsData = await apiService.getReleaseYears()
+        setYears(yearsData)
       } catch (error) {
         console.error('Failed to fetch genres:', error);
       }
     };
 
-    fetchGenres();
+    fetchGenresAndYears();
   }, []);
 
   const fetchAnalisisData = async (genero) => {
@@ -30,7 +33,7 @@ const useAnalisisData = () => {
     }
   };
 
-  return { genres, averageRatingByYear, votosPorRating, fetchAnalisisData };
+  return { years, genres, averageRatingByYear, votosPorRating, fetchAnalisisData };
 };
 
 export default useAnalisisData;
