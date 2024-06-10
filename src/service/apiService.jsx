@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:3000/api';
-// const API_BASE_URL_PROD = "https://challenge-backend-axa4.onrender.com/api"
+// const API_BASE = "https://challenge-backend-axa4.onrender.com/api"
 
 // Función genérica para obtener datos desde una URL con un endpoint específico
 const fetchData = async (endpoint) => {
@@ -18,6 +18,7 @@ const fetchData = async (endpoint) => {
 const getGenres = async () => {
   return fetchData('getgenres');
 };
+
 const getReleaseYears = async () =>{
    return fetchData('getreleaseyears')
 }
@@ -52,14 +53,29 @@ const checkVote = async (userId, movieId) => {
   return fetchData(`checkvote/${userId}/${movieId}`);
 };
 
-// Función para enviar un voto
 const submitVote = async (voteData) => {
-  return fetchData('voto', 'POST', voteData);
+  try {
+    console.log('Submitting vote with data:', voteData);
+    const response = await axios.post(`${API_BASE_URL}/voto`, voteData);
+    console.log('Submit response:', response);
+    return response;
+  } catch (error) {
+    console.error('Error submitting vote:', error);
+    throw error;
+  }
 };
 
-// Función para actualizar un voto
+// Function to update a vote
 const updateVote = async (voteData) => {
-  return fetchData('voto', 'PUT', voteData);
+  try {
+    console.log('Updating vote with data:', voteData);
+    const response = await axios.put(`${API_BASE_URL}/voto`, voteData);
+    console.log('Update response:', response);
+    return response;
+  } catch (error) {
+    console.error('Error updating vote:', error);
+    throw error;
+  }
 };
 
 // Exportar todas las funciones como un objeto

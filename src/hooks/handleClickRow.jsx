@@ -1,21 +1,34 @@
 import apiService from "../service/apiService";
+import Swal from "sweetalert2";
+import VoteModal from '../components/ranking/VoteModal'
 
 const handleClickRow = async (userId, movieId) => {
   try {
-    // Llamada a la función checkVote utilizando userId
     const response = await apiService.checkVote(userId, movieId);
+    console.log(response)
     if (response.rating !== undefined) {
-      // Si existe la propiedad "rating"
-      alert(`Usted votó esta película con: ${response.rating}`);
+      VoteModal(
+        `Usted votó esta película con: ${response.rating}`,
+        response.rating,
+        userId,
+        movieId,
+        true
+      );
     } else if (response.error !== undefined) {
-      // Si existe la propiedad "error"
-      alert('Usted no votó esta película');
+      VoteModal(
+        "Usted no votó esta película. Registre su voto:",
+        0,
+        userId,
+        movieId,
+        false
+      );
     } else {
-      // Si ninguna de las propiedades anteriores está presente
-      alert('Error inesperado');
+      Swal.fire('Error inesperado');
     }
   } catch (error) {
     console.error('Error al verificar el voto:', error);
+    Swal.fire('Error al verificar el voto');
   }
-};
-export default handleClickRow
+}; 
+
+export default handleClickRow;

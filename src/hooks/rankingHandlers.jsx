@@ -14,7 +14,7 @@ export const handleSearch = async (genre, setGenre, year, setYear, rating, setRa
     } else if (year) {
       result = await apiService.getMoviesByYear(year);
     } else if (rating) {
-      result = await apiService.getRatingByRating(rating);
+      result = await apiService.getMoviesByRating(rating);
     } else if (name) {
       result = await apiService.getMoviesByName(name);
     }
