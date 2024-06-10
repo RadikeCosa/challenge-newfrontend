@@ -28,7 +28,7 @@ const getAnalisisData = async (genre) => {
 };
 
 // Función para obtener rating por ID
-const getRatingByRating = async (rating) => {
+const getMoviesByRating = async (rating) => {
   return fetchData(`peliculas/rating/${rating}`);
 };
 
@@ -47,13 +47,31 @@ const getMoviesByYear = async (year) => {
   return fetchData(`peliculas/ano/${year}`);
 };
 
+// Función para verificar voto
+const checkVote = async (userId, movieId) => {
+  return fetchData(`checkvote/${userId}/${movieId}`);
+};
+
+// Función para enviar un voto
+const submitVote = async (voteData) => {
+  return fetchData('voto', 'POST', voteData);
+};
+
+// Función para actualizar un voto
+const updateVote = async (voteData) => {
+  return fetchData('voto', 'PUT', voteData);
+};
+
 // Exportar todas las funciones como un objeto
 export default {
   getGenres,
+  getReleaseYears,
   getAnalisisData,
-  getRatingByRating,
+  getMoviesByRating,
   getMoviesByName,
   getMoviesByGenre,
   getMoviesByYear,
-  getReleaseYears
+  checkVote,
+  submitVote,
+  updateVote
 };
