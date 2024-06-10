@@ -1,6 +1,6 @@
 import apiService from '../service/apiService';
 
-export const handleSearch = async (genre, setGenre, year, setYear, rating, setRating, name, setName) => {
+export const handleSearch = async (genre, setGenre, year, setYear, rating, setRating, name, setName, setResults) => {
   console.log("Search initiated with values:");
   console.log("Genre:", genre);
   console.log("Year:", year);
@@ -20,6 +20,7 @@ export const handleSearch = async (genre, setGenre, year, setYear, rating, setRa
     }
 
     console.log("Search result:", result);
+    setResults(result)
 
   } catch (error) {
     console.error("Error during search:", error);

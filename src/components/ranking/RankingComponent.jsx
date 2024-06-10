@@ -9,12 +9,14 @@ import {
   handleRatingChange, 
   handleNameChange 
 } from '../../hooks/rankingHandlers'
+import ResultsTable from "./ResultsTable";
 
 const RankingComponent = ({years, genres}) => {
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
   const [rating, setRating] = useState("");
   const [name, setName] = useState("");
+  const [results, setResults] = useState([])
 
   
   return (
@@ -48,10 +50,12 @@ const RankingComponent = ({years, genres}) => {
     </div>
     <div className="button-container">
       <SearchButtonComponent 
-        onClick={() => handleSearch(genre, setGenre, year, setYear, rating, setRating, name, setName)} 
+        onClick={() => handleSearch(genre, setGenre, year, setYear, rating, setRating, name, setName, setResults)} 
         label="Filtrar" 
       />
     </div>
+    {results.length > 0 && <ResultsTable results={results} />}  {/* Utilizar el nuevo componente */}
+
   </div>
   );
 };
