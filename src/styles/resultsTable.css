@@ -1,0 +1,28 @@
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.results-table th, .results-table td {
+  padding: 8px;
+}
+
+.results-table th {
+  background: rgba(30, 47, 73, 1);
+  color: white;
+  text-align: left;
+}
+
+.results-table .even-row {
+  background: rgba(50, 78, 122, 1);
+}
+
+.results-table .odd-row {
+  background: rgba(57, 88, 136, 1);
+}
+
+.results-table a {
+  color: white;
+  text-decoration: underline;
+}

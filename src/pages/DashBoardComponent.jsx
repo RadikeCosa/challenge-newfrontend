@@ -1,26 +1,48 @@
-import { useState } from 'react'
-import { useAuth } from '../auth/AuthContext'
+import { useAuth } from '../auth/AuthContext';
+import '../styles/dashBoardComponent.css';
+import AnalisisComponent from '../components/analisis/AnalisisComponent';
+import RankingComponent from '../components/ranking/RankingComponent';
+import SideBarComponent from '../components/sidebar/SidebarComponent';
+import { useState, useEffect } from "react";
+import useAnalisisData from '../hooks/useAnalisisData';
 
-import '../styles/dashBoardComponent.css'
+const DashboardComponent = () => {
+  const [genero, setGenero] = useState("");
+  const { years, genres, averageRatingByYear, votosPorRating, fetchAnalisisData } = useAnalisisData();
+  const handleGeneroChange = (event) => {
+    setGenero(event.target.value);
+  };
 
-import AnalisisComponent from '../components/analisis/AnalisisComponent'
-import RankingComponent from '../components/ranking/RankinkgComponent'
-import SideBarComponent from '../components/sidebar/SidebarComponent'
+  useEffect(() => {
+    if (genero) {
+      fetchAnalisisData(genero);
+    }
+  }, [genero, fetchAnalisisData]);
 
-const DashboardComponent = () =>{
+
+  
 
   const [activeComponent, setActiveComponent] = useState("ranking");
   const { user } = useAuth();
 
-  return(
+  return (
     <div className='dashboard-container'>
-    <SideBarComponent  setActiveComponent={setActiveComponent}/>
-    <div className="main-container">
+      <SideBarComponent setActiveComponent={setActiveComponent}/>
+      <div className="main-container">
         <p>Bienvenido {user["Full Name"]}</p>
-        {activeComponent === "ranking" && <RankingComponent />}
-        {activeComponent === "analisis" && <AnalisisComponent />}
+        {activeComponent === "ranking" && <RankingComponent genres={genres} years={years}/>}
+        {activeComponent === "analisis" && 
+          <AnalisisComponent 
+            genres={genres} 
+            handleChange={handleGeneroChange} 
+            genero={genero} 
+            dataLine={averageRatingByYear} 
+            dataBar={votosPorRating}
+          />
+        }
       </div>
     </div>
-  )
-}
-export default DashboardComponent
+  );
+};
+
+export default DashboardComponent;
